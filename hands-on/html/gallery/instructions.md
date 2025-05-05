@@ -46,6 +46,8 @@ Create an html file that has all the basic elements to get started with the gall
 > - There is also a shortcut to create the basic html structure in Visual Studio Code. Just type `!` and press `Tab` key.
 
 ### Solution
+<details>
+  <summary>Click here to see the sample solution</summary>
 
 ```html
 <!DOCTYPE html>
@@ -61,6 +63,8 @@ Create an html file that has all the basic elements to get started with the gall
 </html>
 ```
 
+</details>
+
 You can have a look at your html file in the browser by right clicking on the file and selecting `Open with Live Server`.
 
 ![./images/1.png](./images/1.png)
@@ -72,12 +76,13 @@ In this step, you will add images to the gallery. The galleries should be random
 > [!Important]
 > Add nine images to the gallery using the `picsum` API for random images. Use a comment as a prompt in your html file to add images to the gallery.
 
-
 > [!Tip]
 > - You can use the following comment in your html file to add images to the gallery: `` <!-- image gallery using random images from the picsum page. For further styling already add appropriate classes. All images should have the same width and height -->``
 > - Remember to close the `div` tag after adding all the images.
 
 ### Solution
+<details>
+  <summary>Click here to see the sample solution</summary>
 
 ```html
 <!-- very basic structure of a modern html page with head body etc -->
@@ -106,7 +111,11 @@ In this step, you will add images to the gallery. The galleries should be random
 </html>
 ```
 
+</details>
+
 Refresh your browser to see the images in the gallery.
+
+Optionally, ask Copilot Chat if it is possible to make the images different from each other.
 
 ### Adding a Polariod effect to the images
 
@@ -120,6 +129,8 @@ In this step, you will add a polaroid effect to the images.
 > - Inspect the result and copy over the complete ``<style>`` tag to your html file.
 
 ### Solution
+<details>
+  <summary>Click here to see the sample solution</summary>
 
 ```html
 <!-- very basic structure of a modern html page with head body etc -->
@@ -164,6 +175,8 @@ In this step, you will add a polaroid effect to the images.
 </html>
 ```
 
+</details>
+
 Refresh your browser to see the polaroid effect on the images in the gallery. Hover with your mouse over the different images to see the shadow effect.
 
 ### Align the images in a 3x3 grid
@@ -171,13 +184,15 @@ Refresh your browser to see the polaroid effect on the images in the gallery. Ho
 In this step, you will align the images in a 3x3 grid. It is important that the gallery should always be in the center of the page.
 
 > [!Important]
-> - Ask Github Copilot Chat to generate the CSS code for the 3x3 grid. Remember to have the index.html file open in the editor.
+> - Ask Github Copilot Chat Edit mode to generate the CSS code for the 3x3 grid. Remember to have the index.html file open in the editor.
 
 > [!Tip]
-> - Go in the style tag and add the following comment to prompt Github Copilot to generate the CSS code for the 3x3 grid: `` /* align the images to be a gallery with 3 by 3 grid. The gallery should always be in the center of the screen */``
-> - Press tab to accept the suggestion
+> - Ask Github Copilot Chat Edit mode to generate the CSS code for the 3x3 grid: ``Align the images to be a gallery with 3 by 3 grid. The gallery should always be in the center of the screen. */``
+> - Press ``Keep`` to accept the suggestion.
 
 ### Solution
+<details>
+  <summary>Click here to see the sample solution</summary>
 
 ```html
 <!-- very basic structure of a modern html page with head body etc -->
@@ -233,6 +248,8 @@ In this step, you will align the images in a 3x3 grid. It is important that the 
 </html>
 ```
 
+</details>
+
 Refresh your browser to see the images in a 3x3 grid in the center of the page.
 
 ## Adding animations to the images
@@ -251,6 +268,8 @@ In this step, you will add animations to the images. The images should wobble wh
 >
 
 ### Solution
+<details>
+  <summary>Click here to see the sample solution</summary>
 
 ```html
 <!-- very basic structure of a modern html page with head body etc -->
@@ -321,6 +340,8 @@ In this step, you will add animations to the images. The images should wobble wh
 </html>
 ```
 
+</details>
+
 Refresh your browser to see the wobble effect on the images in the gallery. Hover with your mouse over the different images to see the wobble effect.
 
 ### Reducing the Opacity of non-hovered images
@@ -338,6 +359,8 @@ In this step, you will reduce the opacity of the non-hovered images.
 > - Ask Copilot chat to clean up your style tag to merge all the scattered styling for the same elements: ``Can you clean the style tag for me and give me a better result?``
 
 ### Solution
+<details>
+  <summary>Click here to see the sample solution</summary>
 
 ```html
 <!-- very basic structure of a modern html page with head body etc -->
@@ -380,9 +403,15 @@ In this step, you will reduce the opacity of the non-hovered images.
         opacity: 0.6;
       }
 
+      .fade-out {
+        opacity: 0;
+        transition: opacity 3s ease-out;
+      }
+
       /* Image rotation animation */
       @keyframes rotate {
-        0%, 100% {
+        0%,
+        100% {
           transform: rotate(0deg);
         }
         50% {
@@ -413,6 +442,8 @@ In this step, you will reduce the opacity of the non-hovered images.
 </html>
 ```
 
+</details>
+
 Refresh your browser to see the opacity effect on the non-hovered images in the gallery. Hover with your mouse over the different images to see the opacity effect.
 
 ## Removing elements from the gallery
@@ -420,7 +451,7 @@ Refresh your browser to see the opacity effect on the non-hovered images in the 
 In this step, you will remove one image from the gallery when you click on it. Be careful with the events of the DOM elements. Some elements might not be available when the page is loaded.
 
 > [!Important]
-> Use Github Copilot chat to generate the JavaScript code for removing an image from the gallery when you click on it. Remember to have the index.html file open in the editor.
+> Use Github Copilot chat to generate the JavaScript code for removing an image from the gallery when you click on it. Remember to have the index.html file open in the editor, or add the file as context.
 
 > [!Tip]
 > - You can use the following prompt in the chat: ``I would like to remove an element from the image gallery when clicking on it. Can you return the whole html page with the new added javascript?``
@@ -429,6 +460,8 @@ In this step, you will remove one image from the gallery when you click on it. B
 >
 
 ### Solution
+<details>
+  <summary>Click here to see the sample solution</summary>
 
 ```html
 <!-- very basic structure of a modern html page with head body etc -->
@@ -519,5 +552,21 @@ In this step, you will remove one image from the gallery when you click on it. B
 </html>
 ```
 
-## Summary
+</details>
 
+## 🖼️ Using Agent Mode & Vision Input to create the gallery
+
+In this step, we'll leverage GitHub Copilot’s Agent Mode and Vision Input to transform a mockup image into a fully functional HTML page with embedded CSS.
+
+> **Mockup file:** `gallery/images/img_gallery_prompt.jpg`  
+> **Prompt for Copilot Chat:**  
+>     Can you create an HTML page for me with the given mockup? Please take a close look at the designer's remarks marked with arrows! Render one HTML page with embedded CSS. Photos should have a white background.
+
+1. Open GitHub Copilot Chat and switch to **Agent Mode** (optional).  
+2. Upload `img_gallery_prompt.jpg` via dragging the image to the chat or by clicking `Add Context` button.  
+3. Paste the prompt above and submit.  
+4. Copy Copilot’s generated HTML+CSS into a new file (e.g., `index-agent.html`).  
+5. Preview with Live Server.
+
+---
+**Contributed by:** Jeffrey Groneberg

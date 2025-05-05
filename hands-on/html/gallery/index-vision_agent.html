@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mockup Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        header {
+            background-color: #004466;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+
+        nav {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #004466;
+            color: white;
+            display: none;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        header:hover nav {
+            display: flex;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+
+        .grid-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .photo-card {
+            background-color: white;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            width: 200px;
+            transition: transform 0.3s;
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .photo-card .caption {
+            background-color: #004466;
+            color: white;
+            padding: 10px;
+        }
+
+        footer {
+            background-color: #004466;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nyan-cat {
+            position: absolute;
+            top: 50%;
+            left: -100px;
+            transform: translateY(-50%);
+            animation: nyan-animation 5s linear infinite;
+        }
+
+        @keyframes nyan-animation {
+            from {
+                left: -100px;
+            }
+            to {
+                left: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Header
+        <nav>
+            <a href="#">Nav1</a>
+            <a href="#">Nav2</a>
+            <a href="#">Nav3</a>
+        </nav>
+    </header>
+
+    <div class="grid-container">
+        <!-- Repeatable 3x3 grid -->
+        <div class="photo-card" onclick="playRickRoll()">
+            <img src="https://picsum.photos/200" alt="Random Image">
+            <div class="caption">Caption</div>
+        </div>
+        <div class="photo-card" onclick="playRickRoll()">
+            <img src="https://picsum.photos/200" alt="Random Image">
+            <div class="caption">Caption</div>
+        </div>
+        <div class="photo-card" onclick="playRickRoll()">
+            <img src="https://picsum.photos/200" alt="Random Image">
+            <div class="caption">Caption</div>
+        </div>
+        <div class="photo-card" onclick="playRickRoll()">
+            <img src="https://picsum.photos/200" alt="Random Image">
+            <div class="caption">Caption</div>
+        </div>
+        <div class="photo-card" onclick="playRickRoll()">
+            <img src="https://picsum.photos/200" alt="Random Image">
+            <div class="caption">Caption</div>
+        </div>
+        <div class="photo-card" onclick="playRickRoll()">
+            <img src="https://picsum.photos/200" alt="Random Image">
+            <div class="caption">Caption</div>
+        </div>
+        <div class="photo-card" onclick="playRickRoll()">
+            <img src="https://picsum.photos/200" alt="Random Image">
+            <div class="caption">Caption</div>
+        </div>
+        <div class="photo-card" onclick="playRickRoll()">
+            <img src="https://picsum.photos/200" alt="Random Image">
+            <div class="caption">Caption</div>
+        </div>
+        <div class="photo-card" onclick="playRickRoll()">
+            <img src="https://picsum.photos/200" alt="Random Image">
+            <div class="caption">Caption</div>
+        </div>
+    </div>
+
+    <footer>
+        Footer
+        <img src="https://media.giphy.com/media/sIIhZliB2McAo/giphy.gif" alt="Nyan Cat" class="nyan-cat">
+    </footer>
+
+    <audio id="rickroll-audio" src="https://www.myinstants.com/media/sounds/rick-roll.mp3"></audio>
+    <script>
+        function playRickRoll() {
+            const audio = document.getElementById('rickroll-audio');
+            audio.play();
+        }
+    </script>
+</body>
+</html>
