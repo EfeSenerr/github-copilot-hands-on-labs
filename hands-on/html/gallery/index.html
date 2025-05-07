@@ -15,7 +15,6 @@
         width: 600px;
         position: relative;
       }
-
       /* Image styles */
       .gallery img {
         width: 200px;
@@ -25,24 +24,20 @@
         border-radius: 5px;
         transition: opacity 0.5s, transform 0.5s;
       }
-
       /* Image hover styles */
       .gallery img:hover {
         box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
         animation: rotate 2s infinite;
         opacity: 1 !important;
       }
-
       /* Gallery hover styles */
       .gallery:hover img {
         opacity: 0.6;
       }
-
       .fade-out {
         opacity: 0;
         transition: opacity 3s ease-out;
       }
-
       /* Image rotation animation */
       @keyframes rotate {
         0%,
@@ -56,50 +51,21 @@
     </style>
   </head>
   <body>
-    <!-- image gallery using random images from the unsplash page. For further styling already add appropriate classes. All images should have the same width and height -->
+    <!-- image gallery using random images from the picsum page. For further styling already add appropriate classes. All images should have the same width and height -->
     <div class="gallery">
-      <img
-        src="https://source.unsplash.com/random/200x200"
-        alt="Random Image 1"
-      />
-      <img
-        src="https://source.unsplash.com/random/200x200"
-        alt="Random Image 2"
-      />
-      <img
-        src="https://source.unsplash.com/random/200x200"
-        alt="Random Image 3"
-      />
-      <img
-        src="https://source.unsplash.com/random/200x200"
-        alt="Random Image 4"
-      />
-      <img
-        src="https://source.unsplash.com/random/200x200"
-        alt="Random Image 5"
-      />
-      <img
-        src="https://source.unsplash.com/random/200x200"
-        alt="Random Image 6"
-      />
-      <img
-        src="https://source.unsplash.com/random/200x200"
-        alt="Random Image 7"
-      />
-      <img
-        src="https://source.unsplash.com/random/200x200"
-        alt="Random Image 8"
-      />
-      <img
-        src="https://source.unsplash.com/random/200x200"
-        alt="Random Image 9"
-      />
+      <img src="https://picsum.photos/200/200?random=1" alt="image 1">
+      <img src="https://picsum.photos/200/200?random=2" alt="image 2">
+      <img src="https://picsum.photos/200/200?random=3" alt="image 3">
+      <img src="https://picsum.photos/200/200?random=4" alt="image 4">
+      <img src="https://picsum.photos/200/200?random=5" alt="image 5">
+      <img src="https://picsum.photos/200/200?random=6" alt="image 6">
+      <img src="https://picsum.photos/200/200?random=7" alt="image 7">
+      <img src="https://picsum.photos/200/200?random=8" alt="image 8">
+      <img src="https://picsum.photos/200/200?random=9" alt="image 9">
     </div>
-
     <script>
       // Select all images in the gallery
       var images = document.querySelectorAll(".gallery img");
-
       // Add an event listener to each image
       images.forEach(function (image) {
         image.addEventListener("click", function (e) {
