@@ -1,8 +1,8 @@
-site_name: GitHub Copilot Workshop
+site_name: GitHub Copilot Workshop Hands-on Labs
 site_description: A comprehensive workshop for learning GitHub Copilot capabilities
 site_author: GitHub Copilot Workshop Team
-repo_url: https://github.com/jeffreygroneberg/ghcpworkshopcsuger
-repo_name: jeffreygroneberg/ghcpworkshopcsuger
+repo_url: https://github.com/Azure-Samples/github-copilot-hands-on/
+repo_name: Azure-Samples/github-copilot-hands-on
 
 theme:
   name: material
@@ -71,7 +71,7 @@ plugins:
 extra:
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/jeffreygroneberg/ghcpworkshopcsuger
+      link: https://github.com/Azure-Samples/github-copilot-hands-on/
 
 nav:
   - Home: index.md

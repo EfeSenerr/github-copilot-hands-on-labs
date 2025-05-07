@@ -34,4 +34,4 @@ To make the most of this workshop:
 
 Ready to supercharge your coding with AI? Let's dive in! 🏊‍♂️
 
-![GitHub Copilot](assets/images/github-copilot-banner.png)
+![GitHub Copilot](assets/images/custom/github-copilot-banner.png)
