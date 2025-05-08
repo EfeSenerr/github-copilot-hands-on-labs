@@ -2,6 +2,9 @@
 
 This guide provides a comparison of different AI models that power GitHub Copilot, helping you understand their capabilities, strengths, and limitations.
 
+!!! info "Up to date model comparison from GitHub"
+      [Check the model comparison from GitHub for more up to date information](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)
+
 ## Model Comparison Table 📊
 
 | Model | Best Use Cases | Context Window | Response Speed | Accuracy & Reasoning | Key Strengths | Limitations |
@@ -38,19 +41,21 @@ This guide provides a comparison of different AI models that power GitHub Copilo
 Below are some official product pages and announcements, which you can consult for more details and the latest updates:
 
 1. **GitHub Copilot**  
-   - Documentation: [https://docs.github.com/en/copilot](https://docs.github.com/en/copilot)  
-   - Blog (Updates & Announcements): [https://github.blog/](https://github.blog/)
+
+      - Documentation: [https://docs.github.com/en/copilot](https://docs.github.com/en/copilot)  
+      - Blog (Updates & Announcements): [https://github.blog/](https://github.blog/)
+      - Model Comparison from GitHub: [https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)
 
 2. **OpenAI**  
-   - GPT-3.5 & GPT-4: [https://openai.com/blog/](https://openai.com/blog/)  
-   - Model Cards & Docs: [https://platform.openai.com/docs/models](https://platform.openai.com/docs/models)
+      - GPT-3.5 & GPT-4: [https://openai.com/blog/](https://openai.com/blog/)  
+      - Model Cards & Docs: [https://platform.openai.com/docs/models](https://platform.openai.com/docs/models)
 
 3. **Anthropic Claude**  
-   - Official Site: [https://www.anthropic.com/index/introducing-claude](https://www.anthropic.com/index/introducing-claude)  
-   - Release Announcements: [https://www.anthropic.com/index/blog](https://www.anthropic.com/index/blog)
+      - Official Site: [https://www.anthropic.com/index/introducing-claude](https://www.anthropic.com/index/introducing-claude)  
+      - Release Announcements: [https://www.anthropic.com/index/blog](https://www.anthropic.com/index/blog)
 
 4. **Google Gemini**  
-   - Google Cloud AI Blog: [https://cloud.google.com/blog/products/ai-machine-learning](https://cloud.google.com/blog/products/ai-machine-learning)  
-   - News & Releases: [https://developers.googleblog.com/](https://developers.googleblog.com/)
+      - Google Cloud AI Blog: [https://cloud.google.com/blog/products/ai-machine-learning](https://cloud.google.com/blog/products/ai-machine-learning)  
+      - News & Releases: [https://developers.googleblog.com/](https://developers.googleblog.com/)
 
-> **Disclaimer:** The content here is for informational purposes only and based on available documentation and reports as of early 2025. Actual performance, quota limits, and feature sets may evolve over time.
+> **Disclaimer:** The content here is for informational purposes only and based on available documentation and reports as of early 2025. Actual performance, quota limits, and feature sets may evolve over time. [Check the model comparison from GitHub for more up to date information](https://docs.github.com/en/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
