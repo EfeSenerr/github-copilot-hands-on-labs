@@ -30,10 +30,12 @@ Each lab is designed to be self-contained and includes:
 ## Choosing the Right Lab 🎯
 
 If you're new to GitHub Copilot, we recommend starting with:
+
 - **Javascript Calculator** (for web developers)
 - **Rock Paper Scissor** (for Python developers)
 
 For more experienced users, try:
+
 - **Star Wars API Client** (for Java developers)
 - **C Sharp Web App** (for .NET developers)
 

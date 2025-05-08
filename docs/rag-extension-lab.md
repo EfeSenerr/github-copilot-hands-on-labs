@@ -121,6 +121,7 @@ function interceptCopilotChat() {
 ### Step 5: Test Your Extension
 
 You'll learn how to test your extension with:
+
 - Sample documentation
 - Various query types
 - Different retrieval strategies
@@ -139,6 +140,7 @@ vscode-dev-tools package
 ## Expected Outcomes 🎉
 
 By the end of this lab, you'll have:
+
 - A working RAG extension for GitHub Copilot Chat
 - The ability to connect Copilot to your own knowledge base
 - A deeper understanding of how RAG systems work
@@ -156,6 +158,7 @@ By the end of this lab, you'll have:
 This hands-on lab is currently under development and will be available in the next workshop update. Stay tuned for the complete implementation guide!
 
 In the meantime, you can prepare by:
+
 1. Familiarizing yourself with VS Code extension development
 2. Learning about vector embeddings and semantic search
 3. Exploring the LangChain framework

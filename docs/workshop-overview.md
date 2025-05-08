@@ -13,6 +13,7 @@ The workshop is flexible and can be conducted in either a 2-hour or 4-hour forma
 ### 2-Hour Workshop
 
 The 2-hour workshop focuses on:
+
 - Introduction to GitHub Copilot
 - Basic setup and configuration
 - Hands-on experience with 1-2 selected labs
@@ -21,6 +22,7 @@ The 2-hour workshop focuses on:
 ### 4-Hour Workshop
 
 The 4-hour workshop includes everything in the 2-hour format, plus:
+
 - More in-depth exploration of GitHub Copilot features
 - Additional hands-on labs
 - Advanced usage scenarios
