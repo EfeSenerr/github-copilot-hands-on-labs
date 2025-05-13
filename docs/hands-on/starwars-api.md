@@ -164,7 +164,7 @@ Let's start by using Luke Skywalker as an example: [https://swapi.info/people/1]
 
 You can see the example payload directly at the page. 
 
-???+ note "Please copy the JSON in your clipboard:"
+??? note "Please copy the JSON in your clipboard:"
     ```json
     {  
         "name": "Luke Skywalker",
@@ -462,7 +462,7 @@ You will see that the `StarWarsAPIImpl` class is not yet created. And that we st
 
 Now, let's implement the interface using Java's HTTP client.
 
-We will first create the `StarWarsAPIImpl` class that implements the `StarWarsAPI` interface. The class will have a method that will return a `StarWarsCharacterDTO` object. As we need to have a start we will use the Luke Skywalker example and also use a method to query specificly for Luke Skywalker.
+We will first create the `StarWarsAPIImpl` class that implements the `StarWarsAPI` interface. The class will have a method that will return a `StarWarsCharacterDTO` object. As we need to have a start, we will use the Luke Skywalker example and also use a method to query specificly for Luke Skywalker.
 
 !!! tip "Copilot Tip"
      Create a new file called `StarWarsAPIImpl.java` in the same folder as your `App.java` file. You can use VSCode to create this.
