@@ -81,7 +81,8 @@ nav:
   - Hands-on Labs:
     - Overview: hands-on/index.md
     - HTML Image Gallery: hands-on/html-gallery.md
-    - Star Wars API: hands-on/starwars-api.md
+    - Star Wars API in Java: hands-on/starwars-api.md
+    - Star Wars API in Python: hands-on/starwars-api-python.md
     - Other Labs: hands-on/other-labs.md
   - Future Roadmap: future-roadmap.md
   - RAG Extension Lab: rag-extension-lab.md
