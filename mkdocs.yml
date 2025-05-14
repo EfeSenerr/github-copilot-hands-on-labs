@@ -73,6 +73,10 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/Azure-Samples/github-copilot-hands-on/
 
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js
+  - javascripts/tablesort.js
+
 nav:
   - Home: index.md
   - Workshop Overview: workshop-overview.md
