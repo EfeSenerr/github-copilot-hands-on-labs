@@ -28,7 +28,7 @@ public class StarWarsAPIImpl implements StarWarsAPI {
     }
 
     private StarWarsCharacterDTO getStarWarsCharacter(int id) throws IOException, InterruptedException {
-        String url = "https://swapi.dev/api/people/" + id + "/";
+        String url = "https://swapi.info/api/people/" + id + "/";
 
         HttpRequest request = HttpRequest.newBuilder()
             .uri(URI.create(url))
