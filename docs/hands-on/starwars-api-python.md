@@ -351,7 +351,9 @@ If you encounter any issues, you might need to fix the URL. The SWAPI URL someti
 We will now implement the `getDarthVader` method in the `StarWarsAPIImpl` class. We will use `requests` to query the Star Wars API and retrieve the information about Darth Vader from the url: [https://swapi.info/api/people/4](https://swapi.info/api/people/4)
 
 !!! tip "Copilot Tip"
-     Add a new method to the `StarWarsAPI` abstract base class and implement it in the `StarWarsAPIImpl` class. Use a comment as a prompt to do so: `# Add a method to get information about Darth Vader`
+     Add a new method to the `StarWarsAPI` abstract base class and implement it in the `StarWarsAPIImpl` class.
+     
+     Either use a comment or **the Copilot Edit/Agent mode** with a prompt: `Add a method to get information about Darth Vader`.
 
 First, add the method to the abstract base class in `star_wars_api.py`:
 
