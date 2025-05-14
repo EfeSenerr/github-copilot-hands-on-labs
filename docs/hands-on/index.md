@@ -9,14 +9,15 @@ Our workshop includes a variety of hands-on labs to give you practical experienc
 | Name | Language | Description | Length |
 | ---- | -------- | ----------- | ------ |
 | **Javascript Calculator** | HTML/Javascript | A small app that serves as a good starter project | 20 mins |
-| **Rock Paper Scissor** | Python | A slightly more advanced app | 45 mins |
+| **Timer and Selector** | HTML/CSS/React | Building components for workshop trainers | 30 mins |
 | **Polaroid Image Gallery** | HTML/Javascript | Building a small image gallery with animations | 45 mins |
-| **Star Wars API Client** | Java | Creating a library to retrieve Star Wars character data | 1 hour |
+| **Rock Paper Scissor** | Python | A slightly more advanced app | 30 mins |
 | **Restaurant API + Deployment** | Python/Azure | Creating and deploying a simple API to Azure | 45 mins |
-| **C Sharp Web App** | C# | Working with .NET Web Technologies and unit tests | 1 hour |
-| **Timer and Selector** | HTML, CSS, React | Building components for workshop trainers | 30 mins |
-| **Interest Calculator** | C++ | Building an interest calculator with unit tests | 30 mins |
+| **Star Wars API Client** | Python | Creating a library to retrieve Star Wars character data | 1 hour |
+| **Star Wars API Client** | Java | Creating a library to retrieve Star Wars character data | 1 hour |
 | **API Testing with SWAPI** | C# | Implementing tests for an API | 30 mins |
+| **C Sharp Web App** | C# | Working with .NET Web Technologies and unit tests | 1 hour |
+| **Interest Calculator** | C++ | Building an interest calculator with unit tests | 30 mins |
 
 ## How to Use These Labs 🎓
 
@@ -46,7 +47,13 @@ In this workshop, we'll be focusing on two labs in particular:
 ### [HTML Image Gallery](html-gallery.md) 🖼️
 Build an interactive image gallery with animations using HTML, CSS, and JavaScript. This lab demonstrates how GitHub Copilot can help with front-end development tasks.
 
-### [Star Wars API Client](starwars-api.md) 🚀
+### [Star Wars API Client in Java](starwars-api.md) 🚀
 Create a Java client for the Star Wars API, including DTOs, interfaces, implementations, and tests. This lab showcases GitHub Copilot's ability to understand and implement complex API interactions.
+
+### [Star Wars API Client in Python](starwars-api-python.md) 🚀
+Build a Python client for the Star Wars API, using data classes, abstract base classes, and tests. This lab guides you step-by-step through creating a reusable API client, writing unit tests, and leveraging GitHub Copilot to accelerate development.
+
+### [Other Labs](other-labs.md)
+Explore additional hands-on labs covering a variety of languages and scenarios. These labs provide more opportunities to practice and discover the capabilities of GitHub Copilot.
 
 Choose a lab that matches your interests and skill level, and let's start coding with GitHub Copilot! 💻

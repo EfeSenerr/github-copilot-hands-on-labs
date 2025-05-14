@@ -35,14 +35,15 @@ Our workshop includes a variety of hands-on labs to give you practical experienc
 | Name | Language | Description | Length |
 | ---- | -------- | ----------- | ------ |
 | **Javascript Calculator** | HTML/Javascript | A small app that serves as a good starter project | 20 mins |
-| **Rock Paper Scissor** | Python | A slightly more advanced app | 45 mins |
+| **Timer and Selector** | HTML/CSS/React | Building components for workshop trainers | 30 mins |
 | **Polaroid Image Gallery** | HTML/Javascript | Building a small image gallery with animations | 45 mins |
-| **Star Wars API Client** | Java | Creating a library to retrieve Star Wars character data | 1 hour |
+| **Rock Paper Scissor** | Python | A slightly more advanced app | 30 mins |
 | **Restaurant API + Deployment** | Python/Azure | Creating and deploying a simple API to Azure | 45 mins |
-| **C Sharp Web App** | C# | Working with .NET Web Technologies and unit tests | 1 hour |
-| **Timer and Selector** | HTML, CSS, React | Building components for workshop trainers | 30 mins |
-| **Interest Calculator** | C++ | Building an interest calculator with unit tests | 30 mins |
+| **Star Wars API Client** | Python | Creating a library to retrieve Star Wars character data | 1 hour |
+| **Star Wars API Client** | Java | Creating a library to retrieve Star Wars character data | 1 hour |
 | **API Testing with SWAPI** | C# | Implementing tests for an API | 30 mins |
+| **C Sharp Web App** | C# | Working with .NET Web Technologies and unit tests | 1 hour |
+| **Interest Calculator** | C++ | Building an interest calculator with unit tests | 30 mins |
 
 ## Learning Objectives 🎯
 
