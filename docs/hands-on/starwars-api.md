@@ -222,11 +222,11 @@ Now, let's create a DTO to represent a Star Wars character.
         private String height;
         private String mass;
         @JsonProperty("hair_color")
-        private String hairColor;
+        private String hair_color;
         @JsonProperty("skin_color")
         private String skinColor;
         @JsonProperty("eye_color")
-        private String eyeColor;
+        private String eye_color;
         @JsonProperty("birth_year")
         private String birthYear;
         private String gender;
@@ -264,12 +264,12 @@ Now, let's create a DTO to represent a Star Wars character.
             this.mass = mass;
         }
 
-        public String getHairColor() {
-            return hairColor;
+        public String getHair_color() {
+            return hair_color;
         }
 
-        public void setHairColor(String hairColor) {
-            this.hairColor = hairColor;
+        public void setHair_color(String hair_color) {
+            this.hair_color = hair_color;
         }
 
         public String getSkinColor() {
@@ -280,12 +280,12 @@ Now, let's create a DTO to represent a Star Wars character.
             this.skinColor = skinColor;
         }
 
-        public String getEyeColor() {
-            return eyeColor;
+        public String getEye_color() {
+            return eye_color;
         }
 
-        public void setEyeColor(String eyeColor) {
-            this.eyeColor = eyeColor;
+        public void setEye_color(String eye_color) {
+            this.eye_color = eye_color;
         }
 
         public String getBirthYear() {
@@ -1126,16 +1126,16 @@ Let's create a simple application class to demonstrate the API client.
                 System.out.println("Name: " + luke.getName());
                 System.out.println("Height: " + luke.getHeight() + " cm");
                 System.out.println("Mass: " + luke.getMass() + " kg");
-                System.out.println("Hair color: " + luke.getHairColor());
-                System.out.println("Eye color: " + luke.getEyeColor());
+                System.out.println("Hair color: " + luke.getHair_color());
+                System.out.println("Eye color: " + luke.getEye_color());
                 
                 System.out.println("\nGetting Darth Vader's information...");
                 StarWarsCharacterDTO vader = api.getDarthVader();
                 System.out.println("Name: " + vader.getName());
                 System.out.println("Height: " + vader.getHeight() + " cm");
                 System.out.println("Mass: " + vader.getMass() + " kg");
-                System.out.println("Hair color: " + vader.getHairColor());
-                System.out.println("Eye color: " + vader.getEyeColor());
+                System.out.println("Hair color: " + vader.getHair_color());
+                System.out.println("Eye color: " + vader.getEye_color());
             } catch (IOException | InterruptedException e) {
                 System.err.println("Error: " + e.getMessage());
                 e.printStackTrace();
