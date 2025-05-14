@@ -27,5 +27,11 @@ replay_pid*
 slides
 .vscode/
 
+# IntelliJ IDEA
+.idea/
+maven-archiver/
+maven-status/
+surefire-reports/
+
 #python
 __pycache__/
