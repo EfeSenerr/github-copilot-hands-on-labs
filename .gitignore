@@ -35,3 +35,6 @@ surefire-reports/
 
 #python
 __pycache__/
+
+# MkDocs
+site/
