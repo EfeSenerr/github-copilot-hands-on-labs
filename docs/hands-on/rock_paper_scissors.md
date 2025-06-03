@@ -4,7 +4,7 @@ In this hands-on lab, you'll build a Python implementation of a classic Rock Pap
 
 ## Lab Overview 📋
 
-**Duration**: 45-60 Minutes  
+**Duration**: 30-45 Minutes  
 **Difficulty**: Beginner to Intermediate  
 **Prerequisites**:
 
@@ -39,15 +39,14 @@ mkdir rock_paper_scissors
 cd rock_paper_scissors
 ```
 
-Create a virtual environment and activate it:
-
-```powershell
-python -m venv venv
-# For Windows
-venv\Scripts\activate
-# For macOS/Linux
-# source venv/bin/activate
-```
+??? note "Optionally, you can create a virtual environment and activate it."
+    ```powershell
+    python -m venv venv
+    # For Windows
+    venv\Scripts\activate
+    # For macOS/Linux
+    # source venv/bin/activate
+    ```
 
 A sample project structure could look like this:
 ```
@@ -61,300 +60,188 @@ rock_paper_scissors/
 
 Let's start by creating a single file that contains all the game logic, scoring system, and main application. We'll build this incrementally, introducing GitHub Copilot features along the way.
 
-First, create a new file called `game.py` in your project directory:
+First, create a new file called `game.py` in your project directory and open the file in your editor.
 
-```powershell
-# Create an empty game.py file
-New-Item -Path "game.py" -ItemType "file"
-```
-
-#### Step 2.1: Setting Up the Basic Structure
-
-Open `game.py` in your editor and let's first create the basic structure for our game:
 
 !!! tip "Copilot Tip"
-     Start with a comment describing what you want to build, and GitHub Copilot will suggest code based on your description. Try typing the following comment at the top of your file:
-     ```python
-     # Rock Paper Scissors game implementation
-     ```
+    Start with a comment describing what you want to build, and GitHub Copilot will suggest code based on your description.
+    After typing the comment, press Enter, and Copilot may suggest some initial code.
 
-After typing the comment, press Enter, and Copilot may suggest some initial code. Let's start by implementing the `Scorer` class:
+Let's first create the basic structure for our game by implementing a class, which will include all helpful functions. Try typing the following comment: ``# Class that represents the scorer of the game ``. 
 
-```python
-# Rock Paper Scissors game implementation
+!!! note "You should have the following output in your IDE:"
+    ```python
+    # Rock Paper Scissors game implementation
 
-class Scorer:
-    """
-    Class to handle scoring for the Rock Paper Scissors game.
-    """
-```
+    # Class that represents the scorer of the game 
+    class Scorer:
+    ```
 
-#### Step 2.2: Implementing the Scorer Class
+#### Implementing the Scorer Class
 
-Now let's implement the constructor for our `Scorer` class:
+Now let's implement the constructor for our `Scorer` class.  
 
-!!! tip "Copilot Tip"
-     Start typing the `__init__` method and press Tab to accept Copilot's suggestion. If Copilot doesn't immediately suggest what you want, try adding a comment describing what you need.
+Start typing the following comment and press Tab to accept Copilot's suggestion: ``initialize the scorer with two player scores``.
 
-```python
-class Scorer:
-    """
-    Class to handle scoring for the Rock Paper Scissors game.
-    """
-    
-    def __init__(self):
-        """Initialize scores for both players."""
-        self.player1_score = 0
-        self.player2_score = 0
-```
+!!! abstract "Sample Result"
+    ```python
+    # Class that represents the scorer of the game
+    class Scorer:
 
-Now let's implement a method to update scores. This time, use comments to guide Copilot:
+        # initialize the scorer with two player scores
+        def __init__(self):
+            self.player1_score = 0
+            self.player2_score = 0
+    ```
+
+Before implementing a method to update scores, let's implement a method to calculate scores for different winner moves.
+Again, use comments to guide Copilot:
 
 !!! tip "Copilot Tip"
-     Add a comment describing what the method should do, and Copilot will suggest an implementation. Try typing:
-     ```python
-     # Method to update the score based on the winner and the move
-     ```
+     Add a comment describing what the method should do, and Copilot will suggest an implementation. Try typing ``# method to calculate points for the winning move``.
 
-Try implementing the `update_score` method that takes two parameters (`winner` and `move`):
+After receiving Copilot's suggestion, your code should now include something like the following.
 
-```python
-def update_score(self, winner, move):
-    """
-    Update the score based on the winner and the move.
-    
-    Args:
-        winner (int): 1 if player 1 wins, 2 if player 2 wins, 0 if it's a draw
-        move (str): The winning move ('rock', 'paper', or 'scissors')
-    """
-```
+!!! abstract "Sample Result"
+    ```python
+    # method to calculate points for the winning move
+        def calculate_points(self, move):
+            if move == "rock":
+                return 1
+            elif move == "paper":
+                return 2
+            elif move == "scissors":
+                return 3
+            else:
+                print("Invalid move")
+                return 0
+    ```
 
-After typing this, Copilot should suggest the method body. Accept the suggestion by pressing Tab. You should end up with something like:
+Now, let's implement a function to update the scores based on the winner and the move. Try adding the following comment: ``# Method to update the score based on the winner and the move``
 
-```python
-def update_score(self, winner, move):
-    """
-    Update the score based on the winner and the move.
-    
-    Args:
-        winner (int): 1 if player 1 wins, 2 if player 2 wins, 0 if it's a draw
-        move (str): The winning move ('rock', 'paper', or 'scissors')
-    """
-    points = self.calculate_points(move)
-    
-    if winner == 1:
-        self.player1_score += points
-    elif winner == 2:
-        self.player2_score += points
-```
+After typing this, Copilot should suggest the method body. Accept the suggestion by pressing Tab.
 
-#### Step 2.3: Using Copilot Edit Mode for the Calculate Points Method
-
-Now let's implement the `calculate_points` method using Copilot's Edit Mode:
-
-!!! tip "Copilot Tip"
-     Select the code area where you want to add the new method, press Ctrl+I to open inline chat, and enter a prompt like:
-     "/edit Add a method called calculate_points that determines points based on the move (rock=1, paper=2, scissors=3)"
-
-After receiving Copilot's suggestion, your code should now include:
-
-```python
-def calculate_points(self, move):
-    """
-    Calculate points for a winning move.
-    
-    Args:
-        move (str): The winning move ('rock', 'paper', or 'scissors')
-        
-    Returns:
-        int: Points for the move (rock=1, paper=2, scissors=3)
-    """
-    points = {
-        'rock': 1,
-        'paper': 2,
-        'scissors': 3
-    }
-    return points.get(move, 0)
-```
-
-#### Step 2.4: Using Copilot to Generate Helper Methods
+!!! abstract "Sample Result"
+    ```python
+    # Method to update the score based on the winner and the move
+        def update_score(self, winner, move):
+            points = self.calculate_points(move)
+            if winner == "player1":
+                self.player1_score += points
+            elif winner == "player2":
+                self.player2_score += points
+            else:
+                print("Invalid winner")
+    ```
 
 Let's add methods to get the final scores and determine the winner. For this, we'll use Copilot's ability to generate code based on function names.
 
-!!! tip "Copilot Tip"
-     Simply type the method name and signature, and Copilot will suggest the implementation. Try typing:
-     ```python
-     def get_final_scores(self):
-     ```
+Simply type the method name and signature, and Copilot will suggest the implementation. Try typing: ``def get_final_scores(self):``
 
-Add the remaining methods to complete the `Scorer` class:
+??? abstract "Sample result:"
+    ```python
+    def get_final_scores(self):
+        return self.player1_score, self.player2_score
+    ```
 
-```python
-def get_final_scores(self):
-    """
-    Get the final scores for both players.
-    
-    Returns:
-        tuple: (player1_score, player2_score)
-    """
-    return (self.player1_score, self.player2_score)
+You can use the same way to implement a function to determine the winner. Try typing: ``def get_winner(self):``
 
-def get_winner(self):
-    """
-    Determine the overall winner based on scores.
-    
-    Returns:
-        int: 1 if player 1 wins, 2 if player 2 wins, 0 if it's a draw
-    """
-```
+??? abstract "Sample result:"
+    ```python
+    def get_winner(self):
+            if self.player1_score > self.player2_score:
+                return "Player 1 wins!"
+            elif self.player2_score > self.player1_score:
+                return "Player 2 wins!"
+            else:
+                return "It's a tie!"
+    ```
 
-Copilot should suggest the implementation of the `get_winner` method. Accept the suggestion to get:
+#### Adding the Game Logic Function
 
-```python
-def get_winner(self):
-    """
-    Determine the overall winner based on scores.
-    
-    Returns:
-        int: 1 if player 1 wins, 2 if player 2 wins, 0 if it's a draw
-    """
-    if self.player1_score > self.player2_score:
-        return 1
-    elif self.player2_score > self.player1_score:
-        return 2
-    else:
-        return 0
-```
+Now let's implement the core game logic with a function to determine the winner of a specific round.
 
-#### Step 2.5: Adding the Game Logic Function
+After the `Scorer` class, add a comment and let Copilot suggest the function. Try typing: `# Function to determine the winner of a rock paper scissors round`
 
-Now let's implement the core game logic with a function to determine the winner of a round:
+Copilot should suggest a function, accept and review it.
 
-!!! tip "Copilot Tip"
-     Add a comment describing the function before implementing it. Try typing:
-     ```python
-     # Function to determine the winner of a rock paper scissors round
-     ```
+??? abstract "Sample Result:"
+    ```python
+    # Function to determine the winner of a rock paper scissors round
+    def determine_winner(player1_move, player2_move):
+        if player1_move == player2_move:
+            return "tie"
+        elif (player1_move == "rock" and player2_move == "scissors") or \
+            (player1_move == "paper" and player2_move == "rock") or \
+            (player1_move == "scissors" and player2_move == "paper"):
+            return "player1"
+        else:
+            return "player2"
+    ```
 
-Add the `determine_winner` function after the `Scorer` class:
-
-```python
-# Function to determine the winner of a rock paper scissors round
-def determine_winner(player1_move, player2_move):
-    """
-    Determine the winner of a rock paper scissors round.
-    
-    Args:
-        player1_move (str): Move chosen by player 1 ('rock', 'paper', or 'scissors')
-        player2_move (str): Move chosen by player 2 ('rock', 'paper', or 'scissors')
-        
-    Returns:
-        int: 1 if player 1 wins, 2 if player 2 wins, 0 if it's a draw
-    """
-```
-
-Accept Copilot's suggestion for the function implementation:
-
-```python
-def determine_winner(player1_move, player2_move):
-    """
-    Determine the winner of a rock paper scissors round.
-    
-    Args:
-        player1_move (str): Move chosen by player 1 ('rock', 'paper', or 'scissors')
-        player2_move (str): Move chosen by player 2 ('rock', 'paper', or 'scissors')
-        
-    Returns:
-        int: 1 if player 1 wins, 2 if player 2 wins, 0 if it's a draw
-    """
-    if player1_move == player2_move:
-        return 0  # Draw
-        
-    if (player1_move == 'rock' and player2_move == 'scissors') or \
-       (player1_move == 'paper' and player2_move == 'rock') or \
-       (player1_move == 'scissors' and player2_move == 'paper'):
-        return 1  # Player 1 wins
-    else:
-        return 2  # Player 2 wins
-```
-
-#### Step 2.6: Implementing the Main Game Loop
+#### Implementing the Main Game Loop
 
 Finally, let's implement the main game loop that simulates the match:
 
 !!! tip "Copilot Tip"
-     For longer functions like the main game loop, you can give Copilot more detailed instructions using comments. Try typing:
+     For longer functions like the main game loop, you can give Copilot more detailed instructions using comments. Try typing ``def main():`` to receive code recommendations, if Copilot suggests more comments.
      ```python
-     # Main function to simulate a 5-round match between Player 1 and Player 2
-     # with predefined moves and score tracking
+     # Main function to simulate a 5-round match between Player 1 and Player 2 with predefined moves and score tracking
+     # Print out detailed texts, results of each round and the final scores
      ```
 
-Start implementing the `main` function:
-
+Start implementing the `main` function. Here are the predefined moves for the both players:
 ```python
-# Main function to simulate a 5-round match between Player 1 and Player 2
-# with predefined moves and score tracking
-def main():
-    """Main function to run the Rock Paper Scissors match simulation."""
+# player1_moves = ['scissors', 'paper', 'scissors', 'rock', 'rock']
+# player2_moves = ['rock', 'rock', 'paper', 'scissors', 'paper']
 ```
 
-Accept Copilot's suggestion for the implementation. It should provide something like:
+!!! tip "Copilot Tip"
+    If you are not satisfied with the overall suggestion of the main function, you can try to modify the comment you have provided.
+    
+    Or, you can press ``Strg`` and then right arrow to only accept word by word.
 
-```python
-def main():
-    """Main function to run the Rock Paper Scissors match simulation."""
-    print("=== Rock Paper Scissors: Classic Match ===")
-    print("Two players compete in a 5-round match.")
-    print("Each move carries weight and consequences.")
-    print("\n")
-    
-    # Initialize scorer
-    scorer = Scorer()
-    
-    # Predefined moves for Player 1
-    player1_moves = ['scissors', 'paper', 'scissors', 'rock', 'rock']
-    
-    # Predefined moves for Player 2
-    player2_moves = ['rock', 'rock', 'paper', 'scissors', 'paper']
-    
-    # Simulate 5 rounds
-    for round_num in range(5):
-        print(f"=== Round {round_num + 1} ===")
-        
-        player1_move = player1_moves[round_num]
-        player2_move = player2_moves[round_num]
-        
-        print(f"Player 1 chooses: {player1_move.upper()}")
-        print(f"Player 2 chooses: {player2_move.upper()}")
-        
-        winner = determine_winner(player1_move, player2_move)
-        winning_move = player1_move if winner == 1 else player2_move if winner == 2 else None
-        
-        if winner == 0:
-            print("It's a DRAW! No points awarded.")
-        else:
-            winner_name = "Player 1" if winner == 1 else "Player 2"
-            points = scorer.calculate_points(winning_move)
-            print(f"{winner_name} WINS with {winning_move.upper()}! {points} points awarded.")
-            scorer.update_score(winner, winning_move)
-        
-        print(f"Current scores: Player 1 {scorer.player1_score}, Player 2 {scorer.player2_score}")
-        print("\n")
-    
-    # Determine overall winner
-    print("=== Final Results ===")
-    final_scores = scorer.get_final_scores()
-    print(f"Final scores: Player 1 {final_scores[0]}, Player 2 {final_scores[1]}")
-    
-    overall_winner = scorer.get_winner()
-    if overall_winner == 0:
-        print("The match ends in a DRAW!")
-    else:
-        winner_name = "Player 1" if overall_winner == 1 else "Player 2"
-        print(f"{winner_name} is the WINNER of the Rock Paper Scissors match!")
-```
+Accept Copilot's suggestion for the implementation. It should provide something like the following.
 
-#### Step 2.7: Adding the Entry Point
+??? abstract "Sample result:"
+    ```python
+    # Main function to simulate a 5-round match between Player 1 and Player 2 with predefined moves and score tracking
+    # Print out detailed texts, results of each round and the final scores
+    # predifned moves for Player 1 and Player 2:
+    # player1_moves = ['scissors', 'paper', 'scissors', 'rock', 'rock']
+    # player2_moves = ['rock', 'rock', 'paper', 'scissors', 'paper']
+    def main():
+        player1_moves = ['scissors', 'paper', 'scissors', 'rock', 'rock']
+        player2_moves = ['rock', 'rock', 'paper', 'scissors', 'paper']
+        
+        scorer = Scorer()
+        
+        for i in range(5):
+            player1_move = player1_moves[i]
+            player2_move = player2_moves[i]
+            
+            print(f"Round {i + 1}:")
+            print(f"Player 1 plays: {player1_move}")
+            print(f"Player 2 plays: {player2_move}")
+            
+            winner = determine_winner(player1_move, player2_move)
+            
+            if winner == "tie":
+                print("It's a tie!")
+            else:
+                print(f"{winner} wins this round!")
+                scorer.update_score(winner, player1_move if winner == "player1" else player2_move)
+                initial_scores = scorer.get_final_scores()
+                print(f"Initial Scores: Player 1: {initial_scores[0]}, Player 2: {initial_scores[1]}")
+            
+            print("-" * 30)
+        
+        final_scores = scorer.get_final_scores()
+        print(f"Final Scores: Player 1: {final_scores[0]}, Player 2: {final_scores[1]}")
+        print(scorer.get_winner())
+    ```
+
+#### Adding the Entry Point
 
 Finally, let's add the entry point to our script:
 
@@ -364,162 +251,98 @@ Finally, let's add the entry point to our script:
      if __name__ == "__main__":
      ```
 
-Complete the file with:
-
-```python
-if __name__ == "__main__":
-    main()
-```
-
-At this point, your complete `game.py` should look like this:
+At this point, your complete `game.py` should look something like the following:
 
 ??? abstract "Complete `game.py`"
     ```python
-    # Rock Paper Scissors game implementation
+    # Rock Paper Scissors Game
 
+    # Class that represents the scorer of the game
     class Scorer:
-        """
-        Class to handle scoring for the Rock Paper Scissors game.
-        """
-        
+
+        # initialize the scorer with two player scores
         def __init__(self):
-            """Initialize scores for both players."""
             self.player1_score = 0
             self.player2_score = 0
-        
-        def update_score(self, winner, move):
-            """
-            Update the score based on the winner and the move.
-            
-            Args:
-                winner (int): 1 if player 1 wins, 2 if player 2 wins, 0 if it's a draw
-                move (str): The winning move ('rock', 'paper', or 'scissors')
-            """
-            points = self.calculate_points(move)
-            
-            if winner == 1:
-                self.player1_score += points
-            elif winner == 2:
-                self.player2_score += points
-        
+
+        # method to calculate points for the winning move
         def calculate_points(self, move):
-            """
-            Calculate points for a winning move.
+            if move == "rock":
+                return 1
+            elif move == "paper":
+                return 2
+            elif move == "scissors":
+                return 3
+            else:
+                print("Invalid move")
+                return 0
             
-            Args:
-                move (str): The winning move ('rock', 'paper', or 'scissors')
-                
-            Returns:
-                int: Points for the move (rock=1, paper=2, scissors=3)
-            """
-            points = {
-                'rock': 1,
-                'paper': 2,
-                'scissors': 3
-            }
-            return points.get(move, 0)
-        
+        # Method to update the score based on the winner and the move
+        def update_score(self, winner, move):
+            points = self.calculate_points(move)
+            if winner == "player1":
+                self.player1_score += points
+            elif winner == "player2":
+                self.player2_score += points
+            else:
+                print("Invalid winner")
+
         def get_final_scores(self):
-            """
-            Get the final scores for both players.
-            
-            Returns:
-                tuple: (player1_score, player2_score)
-            """
-            return (self.player1_score, self.player2_score)
+            return self.player1_score, self.player2_score
         
         def get_winner(self):
-            """
-            Determine the overall winner based on scores.
-            
-            Returns:
-                int: 1 if player 1 wins, 2 if player 2 wins, 0 if it's a draw
-            """
             if self.player1_score > self.player2_score:
-                return 1
+                return "Player 1 wins!"
             elif self.player2_score > self.player1_score:
-                return 2
+                return "Player 2 wins!"
             else:
-                return 0
-
+                return "It's a tie!"
 
     # Function to determine the winner of a rock paper scissors round
     def determine_winner(player1_move, player2_move):
-        """
-        Determine the winner of a rock paper scissors round.
-        
-        Args:
-            player1_move (str): Move chosen by player 1 ('rock', 'paper', or 'scissors')
-            player2_move (str): Move chosen by player 2 ('rock', 'paper', or 'scissors')
-            
-        Returns:
-            int: 1 if player 1 wins, 2 if player 2 wins, 0 if it's a draw
-        """
         if player1_move == player2_move:
-            return 0  # Draw
-            
-        if (player1_move == 'rock' and player2_move == 'scissors') or \
-           (player1_move == 'paper' and player2_move == 'rock') or \
-           (player1_move == 'scissors' and player2_move == 'paper'):
-            return 1  # Player 1 wins
+            return "tie"
+        elif (player1_move == "rock" and player2_move == "scissors") or \
+            (player1_move == "paper" and player2_move == "rock") or \
+            (player1_move == "scissors" and player2_move == "paper"):
+            return "player1"
         else:
-            return 2  # Player 2 wins
-
-
-    # Main function to simulate a 5-round match between Player 1 and Player 2
-    # with predefined moves and score tracking
+            return "player2"
+        
+    # Main function to simulate a 5-round match between Player 1 and Player 2 with predefined moves and score tracking
+    # Print out detailed texts, results of each round and the final scores
+    # predifned moves for Player 1 and Player 2:
+    # player1_moves = ['scissors', 'paper', 'scissors', 'rock', 'rock']
+    # player2_moves = ['rock', 'rock', 'paper', 'scissors', 'paper']
     def main():
-        """Main function to run the Rock Paper Scissors match simulation."""
-        print("=== Rock Paper Scissors: Classic Match ===")
-        print("Two players compete in a 5-round match.")
-        print("Each move carries weight and consequences.")
-        print("\n")
-        
-        # Initialize scorer
-        scorer = Scorer()
-        
-        # Predefined moves for Player 1
         player1_moves = ['scissors', 'paper', 'scissors', 'rock', 'rock']
-        
-        # Predefined moves for Player 2
         player2_moves = ['rock', 'rock', 'paper', 'scissors', 'paper']
         
-        # Simulate 5 rounds
-        for round_num in range(5):
-            print(f"=== Round {round_num + 1} ===")
+        scorer = Scorer()
+        
+        for i in range(5):
+            player1_move = player1_moves[i]
+            player2_move = player2_moves[i]
             
-            player1_move = player1_moves[round_num]
-            player2_move = player2_moves[round_num]
-            
-            print(f"Player 1 chooses: {player1_move.upper()}")
-            print(f"Player 2 chooses: {player2_move.upper()}")
+            print(f"Round {i + 1}:")
+            print(f"Player 1 plays: {player1_move}")
+            print(f"Player 2 plays: {player2_move}")
             
             winner = determine_winner(player1_move, player2_move)
-            winning_move = player1_move if winner == 1 else player2_move if winner == 2 else None
             
-            if winner == 0:
-                print("It's a DRAW! No points awarded.")
+            if winner == "tie":
+                print("It's a tie!")
             else:
-                winner_name = "Player 1" if winner == 1 else "Player 2"
-                points = scorer.calculate_points(winning_move)
-                print(f"{winner_name} WINS with {winning_move.upper()}! {points} points awarded.")
-                scorer.update_score(winner, winning_move)
+                print(f"{winner} wins this round!")
+                scorer.update_score(winner, player1_move if winner == "player1" else player2_move)
+                initial_scores = scorer.get_final_scores()
+                print(f"Initial Scores: Player 1: {initial_scores[0]}, Player 2: {initial_scores[1]}")
             
-            print(f"Current scores: Player 1 {scorer.player1_score}, Player 2 {scorer.player2_score}")
-            print("\n")
+            print("-" * 30)
         
-        # Determine overall winner
-        print("=== Final Results ===")
         final_scores = scorer.get_final_scores()
-        print(f"Final scores: Player 1 {final_scores[0]}, Player 2 {final_scores[1]}")
-        
-        overall_winner = scorer.get_winner()
-        if overall_winner == 0:
-            print("The match ends in a DRAW!")
-        else:
-            winner_name = "Player 1" if overall_winner == 1 else "Player 2"
-            print(f"{winner_name} is the WINNER of the Rock Paper Scissors match!")
-
+        print(f"Final Scores: Player 1: {final_scores[0]}, Player 2: {final_scores[1]}")
+        print(scorer.get_winner())
 
     if __name__ == "__main__":
         main()
@@ -529,233 +352,234 @@ At this point, your complete `game.py` should look like this:
 
 Now let's create a test file to verify our game logic. We'll build this incrementally as well.
 
-First, create a tests directory and a test file:
-
-```powershell
-# Create tests directory
-mkdir -p tests
-
-# Create an empty test file
-New-Item -Path "tests/test_game.py" -ItemType "file"
+First, create a tests directory and a test file. A sample project structure could look like this:
+```
+rock_paper_scissors/
+├── game.py
+└── tests/
+    └── test_game.py
 ```
 
-#### Step 3.1: Setting Up the Test Structure
+#### Setting Up the Test Structure
 
 Open `tests/test_game.py` in your editor and let's start by setting up the test structure:
 
 !!! tip "Copilot Tip"
-     Start by importing the required modules and setting up the test class. Try typing:
-     ```python
-     # Tests for the Rock Paper Scissors game
-     
-     import unittest
-     ```
+     Start by typing a comment describing what the file is for, then import statements. Try typing:
+     ```# Tests for the Rock Paper Scissors game```
 
-Copilot should suggest importing your game module. However, we need to make sure our test file can import from the parent directory. Add the following code:
+Copilot should suggest importing your game module.
 
-```python
-# Tests for the Rock Paper Scissors game
+??? abstract "Sample import structure"
+    ```python
+    # Tests for the Rock Paper Scissors game
+    import unittest
+    from game import Scorer, determine_winner
+    ```
 
-import unittest
-import sys
-import os
-
-# Add the parent directory to the path so we can import game
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-from game import determine_winner, Scorer
-```
-
-#### Step 3.2: Creating the Test Class
+#### Creating the Test File
 
 Now let's create a test class structure:
 
-!!! tip "Copilot Tip"
-     Type the class definition and Copilot will suggest the docstring and methods. Try typing:
-     ```python
-     class TestGame(unittest.TestCase):
-     ```
+Type the class definition and Copilot will suggest the methods. Try typing: ```# Test class for the Scorer class```
 
-```python
-class TestGame(unittest.TestCase):
-    """Test cases for the Rock Paper Scissors game."""
-```
-
-#### Step 3.3: Testing the determine_winner Function
-
-Let's add our first test method to test the `determine_winner` function:
-
-!!! tip "Copilot Tip"
-     Use Copilot to generate test cases by typing the method name and docstring. For example:
-     ```python
-     def test_determine_winner(self):
-         """Test the determine_winner function."""
-     ```
-
-Accept Copilot's suggestions for the test cases or add them yourself:
-
-```python
-def test_determine_winner(self):
-    """Test the determine_winner function."""
-    # Test draws
-    self.assertEqual(determine_winner('rock', 'rock'), 0)
-    self.assertEqual(determine_winner('paper', 'paper'), 0)
-    self.assertEqual(determine_winner('scissors', 'scissors'), 0)
-    
-    # Test player 1 wins
-    self.assertEqual(determine_winner('rock', 'scissors'), 1)
-    self.assertEqual(determine_winner('paper', 'rock'), 1)
-    self.assertEqual(determine_winner('scissors', 'paper'), 1)
-    
-    # Test player 2 wins
-    self.assertEqual(determine_winner('scissors', 'rock'), 2)
-    self.assertEqual(determine_winner('rock', 'paper'), 2)
-    self.assertEqual(determine_winner('paper', 'scissors'), 2)
-```
-
-#### Step 3.4: Using Copilot to Generate Tests for the Scorer Class
-
-Now let's add a test method for the `Scorer` class:
-
-!!! tip "Copilot Tip"
-     For more complex test cases, you can use Copilot's `/tests` command. In the editor, press Ctrl+I to open the inline chat and type:
-     `/tests Write test cases for the Scorer class to verify point calculation and score updates`
-
-After receiving Copilot's suggestions, you can adapt them to your code. Your test method should look like:
-
-```python
-def test_scorer(self):
-    """Test the Scorer class."""
-    scorer = Scorer()
-    
-    # Initial scores should be 0
-    self.assertEqual(scorer.player1_score, 0)
-    self.assertEqual(scorer.player2_score, 0)
-    
-    # Test point calculation
-    self.assertEqual(scorer.calculate_points('rock'), 1)
-    self.assertEqual(scorer.calculate_points('paper'), 2)
-    self.assertEqual(scorer.calculate_points('scissors'), 3)
-    
-    # Test score updates
-    scorer.update_score(1, 'rock')
-    self.assertEqual(scorer.player1_score, 1)
-    self.assertEqual(scorer.player2_score, 0)
-    
-    scorer.update_score(2, 'scissors')
-    self.assertEqual(scorer.player1_score, 1)
-    self.assertEqual(scorer.player2_score, 3)
-    
-    # Test get_winner
-    self.assertEqual(scorer.get_winner(), 2)  # Player 2 has more points
-    
-    # Update Player 1's score to test tie
-    scorer.update_score(1, 'scissors')
-    self.assertEqual(scorer.player1_score, 4)
-    self.assertEqual(scorer.player2_score, 3)
-    
-    # Now Player 1 should be winning
-    self.assertEqual(scorer.get_winner(), 1)
-```
-
-#### Step 3.5: Adding the Test Runner
-
-Finally, let's add the code to run the tests:
-
-!!! tip "Copilot Tip"
-     For standard test runners, Copilot can generate the code with minimal prompting. Try typing:
-     ```python
-     if __name__ == '__main__':
-     ```
-
-Complete the file with:
-
-```python
-if __name__ == '__main__':
-    unittest.main()
-```
-
-At this point, your complete `test_game.py` should look like this:
-
-??? abstract "Complete `test_game.py`"
+??? abstract "Sample test class structure"
     ```python
-    # Tests for the Rock Paper Scissors game
-    
-    import unittest
-    import sys
-    import os
-    
-    # Add the parent directory to the path so we can import game
-    sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
-    from game import determine_winner, Scorer
-    
+    # Test class for the Scorer class
     class TestGame(unittest.TestCase):
-        """Test cases for the Rock Paper Scissors game."""
-        
+    ```
+
+Let's add our first test method to test the `determine_winner` function. 
+
+Use Copilot to generate test cases by either typing a comment beforehand, or by typing the method name.
+
+Accept Copilot's suggestions for the test cases, and make sure the tests align with your game implementation.
+
+??? abstract "Sample test method for `determine_winner`"
+    ```python
+    # test the determine_winner function
         def test_determine_winner(self):
-            """Test the determine_winner function."""
-            # Test draws
-            self.assertEqual(determine_winner('rock', 'rock'), 0)
-            self.assertEqual(determine_winner('paper', 'paper'), 0)
-            self.assertEqual(determine_winner('scissors', 'scissors'), 0)
-            
-            # Test player 1 wins
-            self.assertEqual(determine_winner('rock', 'scissors'), 1)
-            self.assertEqual(determine_winner('paper', 'rock'), 1)
-            self.assertEqual(determine_winner('scissors', 'paper'), 1)
-            
-            # Test player 2 wins
-            self.assertEqual(determine_winner('scissors', 'rock'), 2)
-            self.assertEqual(determine_winner('rock', 'paper'), 2)
-            self.assertEqual(determine_winner('paper', 'scissors'), 2)
-        
-        def test_scorer(self):
-            """Test the Scorer class."""
+            self.assertEqual(determine_winner("rock", "scissors"), "player1")
+            self.assertEqual(determine_winner("paper", "rock"), "player1")
+            self.assertEqual(determine_winner("scissors", "paper"), "player1")
+
+            self.assertEqual(determine_winner("rock", "paper"), "player2")
+            self.assertEqual(determine_winner("paper", "scissors"), "player2")
+            self.assertEqual(determine_winner("scissors", "rock"), "player2")
+
+            self.assertEqual(determine_winner("rock", "rock"), "tie")
+            self.assertEqual(determine_winner("paper", "paper"), "tie")
+            self.assertEqual(determine_winner("scissors", "scissors"), "tie")
+    ```
+
+Now let's add a test method for the `Scorer` class.
+
+!!! tip "Copilot Tip"
+     For more complex test cases, you can use Copilot's `/tests` command leveraging the inline chat function.
+
+In the editor, press Ctrl+I to open the **inline chat** and type:
+`/tests Write test cases for the Scorer class to verify point calculation and score updates`
+
+The GHCP inline chat looks like below:
+
+![image: GHCP inline chat](../assets/images/python/GHCP_inline_chat_tests.png){ width=500px }
+
+You can iterate to get a better result, ask to fix a code that you have written, or even ask to understand a unclear code snippet. Explore pre-written prompts by typing ``/``, e.g. ``/tests``.
+
+After receiving Copilot's suggestions, you can adapt them to your code. 
+
+Your test method for the scorer class can look below.
+
+??? abstract "Sample tests for the scorer class"
+    ```python
+    # used inline GHCP chat with the following prompt:
+        # /tests Write test cases for the Scorer class to verify point calculation and score updates
+        def test_calculate_points(self):
             scorer = Scorer()
-            
-            # Initial scores should be 0
+            self.assertEqual(scorer.calculate_points("rock"), 1)
+            self.assertEqual(scorer.calculate_points("paper"), 2)
+            self.assertEqual(scorer.calculate_points("scissors"), 3)
+            self.assertEqual(scorer.calculate_points("invalid"), 0)
+
+        def test_update_score_player1(self):
+            scorer = Scorer()
+            scorer.update_score("player1", "rock")
+            self.assertEqual(scorer.player1_score, 1)
+            self.assertEqual(scorer.player2_score, 0)
+            scorer.update_score("player1", "paper")
+            self.assertEqual(scorer.player1_score, 3)
+            self.assertEqual(scorer.player2_score, 0)
+
+        def test_update_score_player2(self):
+            scorer = Scorer()
+            scorer.update_score("player2", "scissors")
+            self.assertEqual(scorer.player1_score, 0)
+            self.assertEqual(scorer.player2_score, 3)
+            scorer.update_score("player2", "rock")
+            self.assertEqual(scorer.player1_score, 0)
+            self.assertEqual(scorer.player2_score, 4)
+
+        def test_update_score_invalid(self):
+            scorer = Scorer()
+            scorer.update_score("invalid", "rock")
             self.assertEqual(scorer.player1_score, 0)
             self.assertEqual(scorer.player2_score, 0)
-            
-            # Test point calculation
-            self.assertEqual(scorer.calculate_points('rock'), 1)
-            self.assertEqual(scorer.calculate_points('paper'), 2)
-            self.assertEqual(scorer.calculate_points('scissors'), 3)
-            
-            # Test score updates
-            scorer.update_score(1, 'rock')
-            self.assertEqual(scorer.player1_score, 1)
-            self.assertEqual(scorer.player2_score, 0)
-            
-            scorer.update_score(2, 'scissors')
-            self.assertEqual(scorer.player1_score, 1)
-            self.assertEqual(scorer.player2_score, 3)
-            
-            # Test get_winner
-            self.assertEqual(scorer.get_winner(), 2)  # Player 2 has more points
-            
-            # Update Player 1's score to test tie
-            scorer.update_score(1, 'scissors')
-            self.assertEqual(scorer.player1_score, 4)
-            self.assertEqual(scorer.player2_score, 3)
-            
-            # Now Player 1 should be winning
-            self.assertEqual(scorer.get_winner(), 1)
-    
+
+        def test_get_final_scores(self):
+            scorer = Scorer()
+            scorer.update_score("player1", "rock")
+            scorer.update_score("player2", "paper")
+            self.assertEqual(scorer.get_final_scores(), (1, 2))
+
+        def test_get_winner(self):
+            scorer = Scorer()
+            scorer.update_score("player1", "rock")  # 1
+            scorer.update_score("player2", "paper") # 2
+            self.assertEqual(scorer.get_winner(), "Player 2 wins!")
+            scorer.update_score("player1", "scissors") # +3, total 4
+            self.assertEqual(scorer.get_winner(), "Player 1 wins!")
+            scorer = Scorer()
+            self.assertEqual(scorer.get_winner(), "It's a tie!")
+    ```
+
+Finally, let's add the code to run the tests:
+!!! abstract "Complete the file with:"
+    ```python
     if __name__ == '__main__':
         unittest.main()
     ```
 
-#### Step 3.6: Running the Tests
+At this point, your complete `test_game.py` can look like this:
 
-Now let's run the tests to verify that our game logic is working correctly:
+??? abstract "Sample `test_game.py`"
+    ```python
+    # Tests for the Rock Paper Scissors game
+    import unittest
+    from game import Scorer, determine_winner
 
-```powershell
-cd rock_paper_scissors
-python -m unittest discover tests
-```
+    # Test class for the Scorer class
+    class TestGame(unittest.TestCase):
+        
+        # test the determine_winner function
+        def test_determine_winner(self):
+            self.assertEqual(determine_winner("rock", "scissors"), "player1")
+            self.assertEqual(determine_winner("paper", "rock"), "player1")
+            self.assertEqual(determine_winner("scissors", "paper"), "player1")
+            self.assertEqual(determine_winner("rock", "paper"), "player2")
+            self.assertEqual(determine_winner("paper", "scissors"), "player2")
+            self.assertEqual(determine_winner("scissors", "rock"), "player2")
+            self.assertEqual(determine_winner("rock", "rock"), "tie")
+            self.assertEqual(determine_winner("paper", "paper"), "tie")
+            self.assertEqual(determine_winner("scissors", "scissors"), "tie")
+        
+        # used inline GHCP chat with the following prompt:
+        # /tests Write test cases for the Scorer class to verify point calculation and score updates
+        def test_calculate_points(self):
+            scorer = Scorer()
+            self.assertEqual(scorer.calculate_points("rock"), 1)
+            self.assertEqual(scorer.calculate_points("paper"), 2)
+            self.assertEqual(scorer.calculate_points("scissors"), 3)
+            self.assertEqual(scorer.calculate_points("invalid"), 0)
+
+        def test_update_score_player1(self):
+            scorer = Scorer()
+            scorer.update_score("player1", "rock")
+            self.assertEqual(scorer.player1_score, 1)
+            self.assertEqual(scorer.player2_score, 0)
+            scorer.update_score("player1", "paper")
+            self.assertEqual(scorer.player1_score, 3)
+            self.assertEqual(scorer.player2_score, 0)
+
+        def test_update_score_player2(self):
+            scorer = Scorer()
+            scorer.update_score("player2", "scissors")
+            self.assertEqual(scorer.player1_score, 0)
+            self.assertEqual(scorer.player2_score, 3)
+            scorer.update_score("player2", "rock")
+            self.assertEqual(scorer.player1_score, 0)
+            self.assertEqual(scorer.player2_score, 4)
+
+        def test_update_score_invalid(self):
+            scorer = Scorer()
+            scorer.update_score("invalid", "rock")
+            self.assertEqual(scorer.player1_score, 0)
+            self.assertEqual(scorer.player2_score, 0)
+
+        def test_get_final_scores(self):
+            scorer = Scorer()
+            scorer.update_score("player1", "rock")
+            scorer.update_score("player2", "paper")
+            self.assertEqual(scorer.get_final_scores(), (1, 2))
+
+        def test_get_winner(self):
+            scorer = Scorer()
+            scorer.update_score("player1", "rock")  # 1
+            scorer.update_score("player2", "paper") # 2
+            self.assertEqual(scorer.get_winner(), "Player 2 wins!")
+            scorer.update_score("player1", "scissors") # +3, total 4
+            self.assertEqual(scorer.get_winner(), "Player 1 wins!")
+            scorer = Scorer()
+            self.assertEqual(scorer.get_winner(), "It's a tie!")
+
+
+
+    # main function to run the tests
+    if __name__ == '__main__':
+        unittest.main()
+    ```
+
+#### Running the Tests
+
+Now let's run the tests to verify that our game logic is working correctly.
+
+In your game folder, run the following command.
+
+!!! "Run the tests with these command:"
+    ```powershell
+    python -m unittest discover tests
+    ```
 
 If all tests pass, you should see output similar to:
-
 ```
 .....
 ----------------------------------------------------------------------
@@ -785,89 +609,6 @@ If you have time, try implementing these advanced features:
 
 3. **GUI Interface**: Create a simple graphical interface using a library like Pygame or Tkinter
 
-Here's an example of how you might add player input to the game:
-
-??? abstract "Adding Player Input to `game.py`"
-    ```python
-    def get_player_move():
-        """
-        Get a move from the player.
-        
-        Returns:
-            str: The player's move ('rock', 'paper', or 'scissors')
-        """
-        valid_moves = ['rock', 'paper', 'scissors']
-        
-        while True:
-            move = input("Enter your move (rock, paper, or scissors): ").lower().strip()
-            if move in valid_moves:
-                return move
-            else:
-                print("Invalid move. Please try again.")
-    
-    def main_interactive():
-        """Main function to run the interactive version of the game."""
-        print("=== Rock Paper Scissors: Interactive Edition ===")
-        print("You are Player 1, competing against Player 2.")
-        print("Each move carries weight and consequences.")
-        print("\n")
-        
-        # Initialize scorer
-        scorer = Scorer()
-        
-        # Predefined moves for Player 2 - could be randomized for more fun
-        player2_moves = ['rock', 'rock', 'paper', 'scissors', 'paper']
-        
-        # Play 5 rounds
-        for round_num in range(5):
-            print(f"=== Round {round_num + 1} ===")
-            
-            # Get player's move
-            player1_move = get_player_move()
-            player2_move = player2_moves[round_num]
-            
-            print(f"Player 1 (You) choose: {player1_move.upper()}")
-            print(f"Player 2 chooses: {player2_move.upper()}")
-            
-            winner = determine_winner(player1_move, player2_move)
-            winning_move = player1_move if winner == 1 else player2_move if winner == 2 else None
-            
-            if winner == 0:
-                print("It's a DRAW! No points awarded.")
-            else:
-                winner_name = "Player 1 (You)" if winner == 1 else "Player 2"
-                points = scorer.calculate_points(winning_move)
-                print(f"{winner_name} WINS with {winning_move.upper()}! {points} points awarded.")
-                scorer.update_score(winner, winning_move)
-            
-            print(f"Current scores: Player 1 (You) {scorer.player1_score}, Player 2 {scorer.player2_score}")
-            print("\n")
-        
-        # Determine overall winner
-        print("=== Final Results ===")
-        final_scores = scorer.get_final_scores()
-        print(f"Final scores: Player 1 (You) {final_scores[0]}, Player 2 {final_scores[1]}")
-        
-        overall_winner = scorer.get_winner()
-        if overall_winner == 0:
-            print("The match ends in a DRAW!")
-        else:
-            winner_name = "Player 1 (You)" if overall_winner == 1 else "Player 2"
-            print(f"{winner_name} is the WINNER of the Rock Paper Scissors match!")
-    ```
-
-To run the interactive version, you would add this to your `game.py` file and modify the main block:
-
-```python
-if __name__ == "__main__":
-    # Choose which version to run
-    interactive = input("Do you want to play interactively? (y/n): ").lower() == 'y'
-    if interactive:
-        main_interactive()
-    else:
-        main()
-```
-
 ## GitHub Copilot Tips 💡
 
 ### Use Copilot to improve efficiency
@@ -888,21 +629,19 @@ See if you can use Copilot to find out the complexity (BigO notation) of the cod
 
 2. Press Ctrl/Cmd+I to open the inline chat.
 
-3. Type "/doc"
+3. Type ``/doc``
 
 4. Ask Copilot Chat to document the function.
 
 ### Use Copilot to simplify your code
 
-1. Open GitHub Copilot Chat in the sidebar.
+1. Open GitHub Copilot Chat in the sidebar, and ask it to make your code simpler.
 
-2. Type "/simplify" and press Enter. You can also add any text you want after the "/simplify" to give Copilot more instructions.
-
-3. What did Copilot Chat suggest you do to make it simpler?
+2. What did Copilot Chat suggest you do to make it simpler?
 
 ### Got Errors?
 
-Copilot Chat can help with that too! Just copy the error message and paste it into Chat. Often that's all Copilot needs to resolve your issue.
+Copilot Chat can help with that too! Just copy the error message and paste it into Chat. Often that's all Copilot needs to resolve your issue. If you iterate with the **Agent Mode**, GHCP can also see your error messages in the terminal and directly modify your code accordingly.
 
 ## Summary 📝
 
@@ -912,6 +651,7 @@ In this lab, you've learned how to:
 - Implement game logic and scoring systems in Python
 - Simulate a multi-round match with predefined moves
 - Determine the winner based on accumulated points
+- Generate tests for the implemented game
 
 GitHub Copilot has helped you write code faster and with less effort, allowing you to focus on the game design rather than the implementation details. This is a great example of how AI-assisted coding can enhance your development workflow! 🚀
 
