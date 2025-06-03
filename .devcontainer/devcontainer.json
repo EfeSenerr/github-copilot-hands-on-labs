@@ -1,14 +1,37 @@
 {
-  "name": "Java 21 Maven Development Environment",
-  "image": "maven:3.9.4-eclipse-temurin-21",
-  "postCreateCommand": "mvn clean install",
+  "name": "Java 21 Maven, Python & MCP Server Development Environment",
+  "image": "mcr.microsoft.com/devcontainers/java:1-21",
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "none",
+      "installMaven": "true",
+      "mavenVersion": "3.8.6",
+      "installGradle": "false"
+    },
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "latest"
+    },
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "lts"
+    },
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "latest"
+    }
+  },
   "customizations": {
     "vscode": {
       "extensions": [
         "vscjava.vscode-java-pack",
         "redhat.java",
         "vscjava.vscode-maven",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "ms-python.python",
+        "ms-python.pylint",
+        "ms-python.flake8",
+        "streetsidesoftware.code-spell-checker",
+        "ms-azuretools.vscode-docker",
+        "GitHub.copilot",
+        "GitHub.copilot-chat"
       ],
       "settings": {
         "editor.formatOnSave": true,
@@ -20,7 +43,9 @@
         ],
         "java.import.gradle.enabled": false,
         "java.import.maven.enabled": true,
-        "maven.executable.path": "/usr/bin/mvn"
+        "maven.executable.path": "/usr/bin/mvn",
+        "python.defaultInterpreterPath": "/usr/local/bin/python3",
+        "python.formatting.provider": "black"
       }
     }
   },
@@ -29,5 +54,6 @@
   "runArgs": [
     "--health-cmd=mvn --version --timeout=5s --interval=10s --retries=3"
   ],
-  "onCreateCommand": "mvn initialize"
+  "onCreateCommand": "mvn initialize",
+  "postCreateCommand": "([ -d github-mcp-server ] || git clone https://github.com/github/github-mcp-server.git); cd github-mcp-server && go build -o cmd/github-mcp-server/github-mcp-server ./cmd/github-mcp-server; pip install --upgrade pip && pip install black flake8 pytest requests"
 }
