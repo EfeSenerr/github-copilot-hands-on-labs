@@ -88,7 +88,8 @@ nav:
     - Star Wars API in Java: hands-on/starwars-api.md
     - Star Wars API in Python: hands-on/starwars-api-python.md
     - Rock Paper Scissors: hands-on/rock_paper_scissors.md
-    - GitHub Copilot with MCP: hands-on/gh-gallery-mcp.md
+    - Image Gallery with MCP: hands-on/gh-gallery-mcp.md
+    - Build Your Own MCP Server: hands-on/mcp-server-starter.md
     - Other Labs: hands-on/other-labs.md
   - Future Roadmap: future-roadmap.md
   - RAG Extension Lab: rag-extension-lab.md

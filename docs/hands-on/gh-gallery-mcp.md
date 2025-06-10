@@ -4,6 +4,11 @@ Happy you find your way to this exercise. This exercise demonstrates how to leve
 
 The main purpose of this demo is to provide a hands-on experience with GitHub Copilot, the new agent mode and its integration with MCP servers.
 
+## Lab Overview 📋
+
+**Duration**: 45-60 minutes  
+**Difficulty**: Intermediate  
+
 ## Good to know
 
 This exercise is a successor of the Polaroid image gallery exercise we use for our fundamentals course. You find that exercise [here](./html-gallery.md). It does make sense to let your participants do the fundamentals course first and then this exercise to also show how much more powerful the GitHub Copilot agent mode is.
