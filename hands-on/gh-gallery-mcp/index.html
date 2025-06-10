@@ -16,7 +16,7 @@
         <link rel="prev" href="../rock_paper_scissors/">
       
       
-        <link rel="next" href="../other-labs/">
+        <link rel="next" href="../mcp-server-starter/">
       
       
       <link rel="icon" href="../../assets/images/custom/github-copilot-logo.png">
@@ -24,7 +24,7 @@
     
     
       
-        <title>GitHub Copilot with MCP - GitHub Copilot Hands-on Labs</title>
+        <title>Image Gallery with MCP - GitHub Copilot Hands-on Labs</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#gtml-image-gallery-with-model-context-protocol-mcp" class="md-skip">
+        <a href="#html-image-gallery-with-model-context-protocol-mcp" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              GitHub Copilot with MCP
+              Image Gallery with MCP
             
           </span>
         </div>
@@ -511,6 +511,8 @@
       
         
       
+        
+      
     
     
     
@@ -672,7 +674,7 @@
   
   
   <span class="md-ellipsis">
-    GitHub Copilot with MCP
+    Image Gallery with MCP
     
   </span>
   
@@ -685,7 +687,7 @@
   
   
   <span class="md-ellipsis">
-    GitHub Copilot with MCP
+    Image Gallery with MCP
     
   </span>
   
@@ -706,6 +708,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab Overview 📋
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#good-to-know" class="md-nav__link">
@@ -867,6 +878,29 @@
   
   
     <li class="md-nav__item">
+      <a href="../mcp-server-starter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Build Your Own MCP Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../other-labs/" class="md-nav__link">
         
   
@@ -959,6 +993,15 @@
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lab-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lab Overview 📋
+    </span>
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#good-to-know" class="md-nav__link">
@@ -1123,8 +1166,12 @@
   
 
 
-<h1 id="gtml-image-gallery-with-model-context-protocol-mcp">GTML Image Gallery with Model Context Protocol (MCP)<a class="headerlink" href="#gtml-image-gallery-with-model-context-protocol-mcp" title="Permanent link">&para;</a></h1>
+<h1 id="html-image-gallery-with-model-context-protocol-mcp">HTML Image Gallery with Model Context Protocol (MCP)<a class="headerlink" href="#html-image-gallery-with-model-context-protocol-mcp" title="Permanent link">&para;</a></h1>
 <p>Happy you find your way to this exercise. This exercise demonstrates how to leverage an agent to interpret a designer mockup, use the GitHub Copilot MCP server to generate issues, read repository information, and more. Furthermore we will use the Playwright MCP server to generate tests for the Polaroid image gallery.</p>
+<p>The main purpose of this demo is to provide a hands-on experience with GitHub Copilot, the new agent mode and its integration with MCP servers.</p>
+<h2 id="lab-overview">Lab Overview 📋<a class="headerlink" href="#lab-overview" title="Permanent link">&para;</a></h2>
+<p><strong>Duration</strong>: 45-60 minutes<br />
+<strong>Difficulty</strong>: Intermediate  </p>
 <h2 id="good-to-know">Good to know<a class="headerlink" href="#good-to-know" title="Permanent link">&para;</a></h2>
 <p>This exercise is a successor of the Polaroid image gallery exercise we use for our fundamentals course. You find that exercise <a href="../html-gallery/">here</a>. It does make sense to let your participants do the fundamentals course first and then this exercise to also show how much more powerful the GitHub Copilot agent mode is.</p>
 <div class="admonition info">
@@ -1133,13 +1180,28 @@
 <p>It is NOT possible to write a deterministic training and exercise for GitHub Copilot and the experience will be different for each participant. You need to deal with this. Safeguarding your code is a necessity and you should always use version control and automated testing to keep track of your changes when using GitHub Copilot. </p>
 </div>
 <h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
-<p>You need to either have <a href="https://github.com/EfeSenerr/ghcp-mcp-gallery/tree/main">this repository</a> cloned to your local machine or have it open in a GitHub Codespace. </p>
+<p>Please create a fork of <a href="https://github.com/jeffreygroneberg/ghcp-mcp">this repository</a> to your own GitHub account. This will allow you to make changes and experiment with the code without affecting the original repository.</p>
+<p>Afterwards, you can clone that repository to your local machine or have it open in a GitHub Codespace.</p>
+<p>To use GitHub Copilot with MCP, you need to create a GitHub Personal Access Token (PAT). Use this link to create a PAT: <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens?wt.mc_id=DT-MVP-5004771">Create GitHub PAT</a></p>
 <p>You also need to have the GitHub Copilot extension installed and configured in your IDE. If you are using a local machine, make sure you have the MCP server running as well - we will do this in the next steps.</p>
 <h2 id="mcp-servers">MCP Servers<a class="headerlink" href="#mcp-servers" title="Permanent link">&para;</a></h2>
-<p>Before we start, you need to make sure that the MCP servers are running. You can do this by clicking on <code>start</code> when opening the <code>.vscode/mcp.json</code> file. This will start the MCP servers! Always make sure that you need to start the right GitHub MCP server based on how you have started this exercise - either on your local machine or in a GitHub Codespace.</p>
+<p>Before we start, you need to make sure that the MCP servers are running. You can do this by clicking on <code>start</code> when opening the <code>.vscode/mcp.json</code> file. This will start the MCP servers!</p>
+<p>Always make sure that you need to start the right GitHub MCP server based on how you have started this exercise - either on your local machine or in a GitHub Codespace. The official documentation for MCP in VS Code can be found <a href="https://code.visualstudio.com/docs/copilot/chat/mcp-servers">here</a>.</p>
 <p><img alt="MCP Servers Setup" src="../../assets/images/mcp/mcp_servers_setup.png" width="750px" /></p>
-<p>When starting the GitHub MCP server, you will be prompted to enter your <strong>GitHub Personal Access Token (PAT)</strong>. This is required to authenticate with the GitHub API and allows the MCP server to access your repositories and other information. You can create a PAT by following the instructions in the <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens?wt.mc_id=DT-MVP-5004771">GitHub documentation</a>.</p>
+<p>When starting the GitHub MCP server, you will be prompted to enter your <strong>GitHub Personal Access Token (PAT)</strong>. This is required to authenticate with the GitHub API and allows the MCP server to access your repositories and other information. </p>
+<p>You can create a PAT by following the instructions in the <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens?wt.mc_id=DT-MVP-5004771">GitHub documentation</a>.</p>
 <h3 id="check-your-mcp-servers-running">Check your MCP servers running<a class="headerlink" href="#check-your-mcp-servers-running" title="Permanent link">&para;</a></h3>
+<p>We are using the following MCP servers in this demo:</p>
+<ul>
+<li><a href="https://github.com/github/github-mcp-server">GitHub Copilot MCP</a><ul>
+<li>This is the MCP server that gives GitHub Copilot access to the GitHub API and allows you to generate issues, read repository information, and more.</li>
+</ul>
+</li>
+<li><a href="https://github.com/microsoft/playwright-mcp">Playwright MCP</a><ul>
+<li>This is the MCP server that gives GitHub Copilot access to the Playwright API and allows you to generate tests, read browser information, and more.</li>
+</ul>
+</li>
+</ul>
 <p>Switch over to the GitHub Copilot Chat and check within the input panel the <code>tools button</code>.</p>
 <p><img alt="Tools Button" src="../../assets/images/mcp/agent_tool_click.png" width="400px" /></p>
 <p>After clicking on the tools button, you should see the following:</p>
@@ -1246,6 +1308,8 @@ Use the following prompt to create the Polaroid image gallery - <strong>adjust t
 <li>Debug and fix issues in generated code through iterative prompting with the agent</li>
 <li>Manage GitHub issues lifecycle by programmatically closing completed tasks using MCP tools</li>
 </ul>
+<p>You can watch the following video to learn more about MCP and how to use it with GitHub Copilot:</p>
+<p><a href="https://www.youtube.com/watch?v=1Pf2rW5FsqQ"><img alt="MCP Introduction" src="https://img.youtube.com/vi/1Pf2rW5FsqQ/0.jpg" /></a></p>
 <hr />
 <p><strong>Contributed by:</strong> Jeffrey Groneberg</p>
 
