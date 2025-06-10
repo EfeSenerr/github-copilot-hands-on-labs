@@ -1,4 +1,4 @@
-# GTML Image Gallery with Model Context Protocol (MCP)
+# HTML Image Gallery with Model Context Protocol (MCP)
 
 Happy you find your way to this exercise. This exercise demonstrates how to leverage an agent to interpret a designer mockup, use the GitHub Copilot MCP server to generate issues, read repository information, and more. Furthermore we will use the Playwright MCP server to generate tests for the Polaroid image gallery.
 
