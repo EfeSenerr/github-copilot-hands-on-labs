@@ -2,6 +2,8 @@
 
 Happy you find your way to this exercise. This exercise demonstrates how to leverage an agent to interpret a designer mockup, use the GitHub Copilot MCP server to generate issues, read repository information, and more. Furthermore we will use the Playwright MCP server to generate tests for the Polaroid image gallery.
 
+The main purpose of this demo is to provide a hands-on experience with GitHub Copilot, the new agent mode and its integration with MCP servers.
+
 ## Good to know
 
 This exercise is a successor of the Polaroid image gallery exercise we use for our fundamentals course. You find that exercise [here](./html-gallery.md). It does make sense to let your participants do the fundamentals course first and then this exercise to also show how much more powerful the GitHub Copilot agent mode is.
@@ -13,19 +15,34 @@ This exercise is a successor of the Polaroid image gallery exercise we use for o
 
 ## Prerequisites
 
-You need to either have [this repository](https://github.com/EfeSenerr/ghcp-mcp-gallery/tree/main) cloned to your local machine or have it open in a GitHub Codespace. 
+Please create a fork of [this repository](https://github.com/jeffreygroneberg/ghcp-mcp) to your own GitHub account. This will allow you to make changes and experiment with the code without affecting the original repository.
+
+Afterwards, you can clone that repository to your local machine or have it open in a GitHub Codespace.
+
+To use GitHub Copilot with MCP, you need to create a GitHub Personal Access Token (PAT). Use this link to create a PAT: [Create GitHub PAT](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens?wt.mc_id=DT-MVP-5004771)
 
 You also need to have the GitHub Copilot extension installed and configured in your IDE. If you are using a local machine, make sure you have the MCP server running as well - we will do this in the next steps.
 
 ## MCP Servers
 
-Before we start, you need to make sure that the MCP servers are running. You can do this by clicking on `start` when opening the `.vscode/mcp.json` file. This will start the MCP servers! Always make sure that you need to start the right GitHub MCP server based on how you have started this exercise - either on your local machine or in a GitHub Codespace.
+Before we start, you need to make sure that the MCP servers are running. You can do this by clicking on `start` when opening the `.vscode/mcp.json` file. This will start the MCP servers!
+
+Always make sure that you need to start the right GitHub MCP server based on how you have started this exercise - either on your local machine or in a GitHub Codespace. The official documentation for MCP in VS Code can be found [here](https://code.visualstudio.com/docs/copilot/chat/mcp-servers).
 
 ![MCP Servers Setup](../assets/images/mcp/mcp_servers_setup.png){ width=750px }
 
-When starting the GitHub MCP server, you will be prompted to enter your **GitHub Personal Access Token (PAT)**. This is required to authenticate with the GitHub API and allows the MCP server to access your repositories and other information. You can create a PAT by following the instructions in the [GitHub documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens?wt.mc_id=DT-MVP-5004771).
+When starting the GitHub MCP server, you will be prompted to enter your **GitHub Personal Access Token (PAT)**. This is required to authenticate with the GitHub API and allows the MCP server to access your repositories and other information. 
+
+You can create a PAT by following the instructions in the [GitHub documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens?wt.mc_id=DT-MVP-5004771).
 
 ### Check your MCP servers running
+
+We are using the following MCP servers in this demo:
+
+- [GitHub Copilot MCP](https://github.com/github/github-mcp-server)
+    - This is the MCP server that gives GitHub Copilot access to the GitHub API and allows you to generate issues, read repository information, and more.
+- [Playwright MCP](https://github.com/microsoft/playwright-mcp)
+    - This is the MCP server that gives GitHub Copilot access to the Playwright API and allows you to generate tests, read browser information, and more.
 
 Switch over to the GitHub Copilot Chat and check within the input panel the `tools button`.
 
@@ -186,6 +203,10 @@ In this lab, you've learned how to:
 - Use the Playwright MCP server to generate automated tests for web applications
 - Debug and fix issues in generated code through iterative prompting with the agent
 - Manage GitHub issues lifecycle by programmatically closing completed tasks using MCP tools
+
+You can watch the following video to learn more about MCP and how to use it with GitHub Copilot:
+
+[![MCP Introduction](https://img.youtube.com/vi/1Pf2rW5FsqQ/0.jpg)](https://www.youtube.com/watch?v=1Pf2rW5FsqQ)
 
 ---
 **Contributed by:** Jeffrey Groneberg
