@@ -7,7 +7,7 @@ In this tutorial, we'll build a simple MCP (Model Context Protocol) weather serv
 **Duration**: 60-90 minutes  
 **Difficulty**: Intermediate
 
-This lab is based on the Model Context Protocol's [quickstart guide](https://modelcontextprotocol.io/quickstart/server) to create an MCP server.
+This lab is mainly based on the Model Context Protocol's [quickstart guide](https://modelcontextprotocol.io/quickstart/server) to create an MCP server, with additional VS Code integration guides, screenshots, and step-by-step instructions for GitHub Copilot integration.
 
 ## What we'll be building
 
