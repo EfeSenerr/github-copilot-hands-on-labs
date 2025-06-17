@@ -1429,7 +1429,7 @@ For adding an MCP server in your workspace, create a `.vscode/mcp.json` file in 
         ```
 
 !!! warning "Absolute Paths Required"
-    **Make sure you use absolute paths to your server.** Relative paths may not work correctly with MCP server configuration.
+    **Make sure you use absolute paths to your server.** Relative paths may not work correctly with MCP server configuration. For more information about the configuration, take a look at [the documentation](https://code.visualstudio.com/docs/copilot/chat/mcp-servers?wt.md_id=AZ-MVP-5004796#_configuration-format).
 
 To configure an MCP server for all your workspaces, you can add the server configuration to your user settings. This allows you to reuse the same server configuration across multiple projects.
 
@@ -1473,41 +1473,37 @@ When you ask a weather question like the example below:
 
 ### MCP Server Issues
 
-#### Server not showing up in VS Code
+Server not showing up in VS Code:
 
-1. Check your `.vscode/mcp.json` file syntax
-2. Make sure the path to your project is absolute and not relative
-3. Verify your server builds and runs without errors (`uv run weather.py` or `npm run build && node build/index.js`)
-4. Restart the MCP server from the configuration file
+  1. Check your `.vscode/mcp.json` file syntax
+  2. Make sure the path to your project is absolute and not relative
+  3. Verify your server builds and runs without errors (`uv run weather.py` or `npm run build && node build/index.js`)
+  4. Restart the MCP server from the configuration file
 
-#### Tool calls failing silently
+Tool calls failing silently:
 
-If GitHub Copilot attempts to use the tools but they fail:
-
-1. Check the VS Code output panel for MCP-related errors
-2. Verify your server builds and runs without errors
-3. Test your server independently by running it directly
-4. Try restarting the MCP server
+  1. Check the VS Code output panel for MCP-related errors
+  2. Verify your server builds and runs without errors
+  3. Test your server independently by running it directly
+  4. Try restarting the MCP server
 
 ### Weather API Issues
 
-#### Error: Failed to retrieve grid point data
+Error: Failed to retrieve grid point data means either:
 
-This usually means either:
+  1. The coordinates are outside the US
+  2. The NWS API is having issues
+  3. You're being rate limited
 
-1. The coordinates are outside the US
-2. The NWS API is having issues
-3. You're being rate limited
+To Fix:
 
-**Fix:**
+  - Verify you're using US coordinates
+  - Add a small delay between requests
+  - Check the NWS API status page
 
-- Verify you're using US coordinates
-- Add a small delay between requests
-- Check the NWS API status page
+Error: No active alerts for [STATE]
 
-#### Error: No active alerts for [STATE]
-
-This isn't an error - it just means there are no current weather alerts for that state. Try a different state or check during severe weather.
+  - This isn't an error - it just means there are no current weather alerts for that state. Try a different state or check during severe weather.
 
 <!-- !!! tip "Debugging Tips"
     **Use VS Code's output panel and terminal to debug issues.** The MCP server logs will show you exactly what's happening when tools are called. -->
