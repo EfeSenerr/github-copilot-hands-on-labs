@@ -200,7 +200,7 @@ You can use the following prompt in the chat: ``I would like to remove an elemen
 
 After adding the JavaScript, your complete HTML should look something like the sample below.
 
-???+ abstract "Sample solution after adding the JavaScript"
+??? abstract "Sample solution after adding the JavaScript"
     ```html
     <!-- very basic structure of a modern html page with head body etc -->
     <!DOCTYPE html>
