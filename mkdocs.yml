@@ -84,12 +84,15 @@ nav:
   - Model Comparison: model-comparison.md
   - Hands-on Labs:
     - Overview: hands-on/index.md
-    - HTML Image Gallery: hands-on/html-gallery.md
-    - Star Wars API in Java: hands-on/starwars-api.md
-    - Star Wars API in Python: hands-on/starwars-api-python.md
-    - Rock Paper Scissors: hands-on/rock_paper_scissors.md
-    - Image Gallery with MCP: hands-on/gh-gallery-mcp.md
-    - Build Your Own MCP Server: hands-on/mcp-server-starter.md
+    - Fundamentals:
+      - HTML Image Gallery: hands-on/html-gallery.md
+      - Rock Paper Scissors: hands-on/rock_paper_scissors.md
+    - APIs:
+      - Star Wars API in Java: hands-on/starwars-api.md
+      - Star Wars API in Python: hands-on/starwars-api-python.md
+    - MCP: 
+      - Image Gallery with MCP: hands-on/gh-gallery-mcp.md
+      - Build Your Own MCP Server: hands-on/mcp-server-starter.md
     - Other Labs: hands-on/other-labs.md
   - Future Roadmap: future-roadmap.md
   - RAG Extension Lab: rag-extension-lab.md
